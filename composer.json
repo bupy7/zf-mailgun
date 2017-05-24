@@ -1,0 +1,47 @@
+{
+    "name": "bupy7/zf-mailgun",
+    "description": "Mailgun module for Zend Framework 3.",
+    "version": "1.0.0",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "zend",
+        "mailgun",
+        "zf",
+        "zf3",
+        "mail"
+    ],
+    "authors": [
+        {
+            "name": "Vasilij Belosludcev",
+            "email": "bupy765@gmail.com",
+            "homepage": "http://mihaly4.ru"
+        }
+    ],
+    "require": {
+        "php": "^5.6 || ^7.0",
+        "container-interop/container-interop": "^1.2",
+        "zendframework/zend-stdlib": "^3.1",
+        "zendframework/zend-modulemanager": "^2.7.2",
+        "zendframework/zend-servicemanager": "^3.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.7.20",
+        "satooshi/php-coveralls": "1.0.*",
+        "zendframework/zend-test": "^3.0.1",
+        "friendsofphp/php-cs-fixer": "~2.2.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bupy7\\Mailgun\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Bupy7\\Mailgun\\Test\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "php vendor/bin/phpunit --debug",
+        "fixer": "php vendor/bin/php-cs-fixer fix"
+    }
+}
