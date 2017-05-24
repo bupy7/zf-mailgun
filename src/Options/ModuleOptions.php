@@ -4,6 +4,9 @@ namespace Bupy7\Mailgun\Options;
 
 use Zend\Stdlib\AbstractOptions;
 
+/**
+ * @author Vasily Belosludcev <https://github.com/bupy7>
+ */
 class ModuleOptions extends AbstractOptions
 {
     /**
