@@ -1,18 +1,14 @@
 <?php
 
-use Bupy7\Mailgun\Service\MailgunService;
 use Bupy7\Mailgun\Service\MailgunServiceFactory;
 use Bupy7\Mailgun\Options\ModuleOptions;
 use Bupy7\Mailgun\Options\ModuleOptionsFactory;
 
 return [
-    'mailgun' => [
-        // Your API key from Mailgun domain information
-        'key' => 'key-example',
-    ],
+    'mailgun' => [],
     'service_manager' => [
         'factories' => [
-            MailgunService::class => MailgunServiceFactory::class,
+            'Bupy7\Mailgun\Service\MailgunService' => MailgunServiceFactory::class,
             ModuleOptions::class => ModuleOptionsFactory::class,
         ],
     ],
