@@ -24,6 +24,12 @@ class ModuleOptions extends AbstractOptions
      * @see https://github.com/mailgun/mailgun-php#debugging
      */
     protected $endpoint;
+    /**
+     * @var string Response class hydrator. Class must be instance of `Mailgun\Hydrator\Hydrator` or
+     * `Zend\ServiceManager\Factory\FactoryInterface` or alias of class service. By default is
+     * `Mailgun\Hydrator\ModelHydrator`.
+     */
+    protected $hydrator;
 
     /**
      * @param string $key
@@ -77,5 +83,23 @@ class ModuleOptions extends AbstractOptions
     public function getEndpoint()
     {
         return $this->endpoint;
+    }
+
+    /**
+     * @param string|null $hydrator
+     * @return static
+     */
+    public function setHydrator($hydrator)
+    {
+        $this->hydrator = $hydrator;
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getHydrator()
+    {
+        return $this->hydrator;
     }
 }

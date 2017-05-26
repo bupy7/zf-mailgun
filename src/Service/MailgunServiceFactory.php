@@ -6,6 +6,8 @@ use Interop\Container\ContainerInterface;
 use Zend\ServiceManager\Factory\FactoryInterface;
 use Mailgun\Mailgun;
 use Mailgun\HttpClientConfigurator;
+use Mailgun\Hydrator\Hydrator;
+use Mailgun\Hydrator\NoopHydrator;
 
 /**
  * @author Vasily Belosludcev <https://github.com/bupy7>
@@ -22,12 +24,22 @@ class MailgunServiceFactory implements FactoryInterface
     {
         $configurator = new HttpClientConfigurator;
         $options = $container->get('Bupy7\Mailgun\Options\ModuleOptions');
+        $hydrator = $options->getHydrator();
         if ($options->getDebug()) {
             $configurator->setEndpoint($options->getEndpoint());
             $configurator->setDebug(true);
+            // https://github.com/mailgun/mailgun-php/issues/359
+            if ($hydrator === null) {
+                $hydrator = NoopHydrator::class;
+            }
         } else {
             $configurator->setApiKey($options->getKey());
         }
-        return Mailgun::configure($configurator);
+        if (is_subclass_of($hydrator, Hydrator::class)) {
+            $hydrator = new $hydrator;
+        } elseif ($hydrator !== null && $container->has($hydrator)) {
+            $hydrator = $container->get($hydrator);
+        }
+        return Mailgun::configure($configurator, $hydrator);
     }
 }
