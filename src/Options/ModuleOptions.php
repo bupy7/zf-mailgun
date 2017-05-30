@@ -24,6 +24,10 @@ class ModuleOptions extends AbstractOptions
      * @see https://github.com/mailgun/mailgun-php#debugging
      */
     protected $endpoint;
+    /**
+     * @var string|Hydrator|null Hydrator class for API response.
+     */
+    protected $hydrator;
 
     /**
      * @param string $key
@@ -77,5 +81,23 @@ class ModuleOptions extends AbstractOptions
     public function getEndpoint()
     {
         return $this->endpoint;
+    }
+
+    /**
+     * @param string|Hydrator|null $hydrator
+     * @return static
+     */
+    public function setHydrator($hydrator)
+    {
+        $this->hydrator = $hydrator;
+        return $this;
+    }
+
+    /**
+     * @return string|Hydrator|null
+     */
+    public function getHydrator()
+    {
+        return $this->hydrator;
     }
 }
