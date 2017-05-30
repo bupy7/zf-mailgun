@@ -25,13 +25,9 @@ class ModuleOptions extends AbstractOptions
      */
     protected $endpoint;
     /**
-<<<<<<< HEAD
-     * @var string|Hydrator|null Hydrator class for API response.
-=======
-     * @var string Response class hydrator. Class must be instance of `Mailgun\Hydrator\Hydrator` or
+     * @var string|Hydrator|null Response class hydrator. Class must be instance of `Mailgun\Hydrator\Hydrator` or
      * `Zend\ServiceManager\Factory\FactoryInterface` or alias of class service. By default is
      * `Mailgun\Hydrator\ModelHydrator`.
->>>>>>> origin/master
      */
     protected $hydrator;
 
@@ -90,11 +86,7 @@ class ModuleOptions extends AbstractOptions
     }
 
     /**
-<<<<<<< HEAD
      * @param string|Hydrator|null $hydrator
-=======
-     * @param string|null $hydrator
->>>>>>> origin/master
      * @return static
      */
     public function setHydrator($hydrator)
@@ -104,11 +96,7 @@ class ModuleOptions extends AbstractOptions
     }
 
     /**
-<<<<<<< HEAD
      * @return string|Hydrator|null
-=======
-     * @return string|null
->>>>>>> origin/master
      */
     public function getHydrator()
     {
