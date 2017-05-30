@@ -27,8 +27,9 @@ class MailgunServiceFactory implements FactoryInterface
         if ($options->getDebug()) {
             $configurator->setEndpoint($options->getEndpoint());
             $configurator->setDebug(true);
+            // https://github.com/mailgun/mailgun-php/issues/359
             if ($hydrator === null) {
-                $hydrator = new NoopHydrator;
+                $hydrator = NoopHydrator::class;
             }
         } else {
             $configurator->setApiKey($options->getKey());
