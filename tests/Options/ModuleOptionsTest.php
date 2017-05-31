@@ -55,5 +55,5 @@ class ModuleOptionsTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($config['endpoint'], $options->getEndpoint());
         $this->assertEquals($config['key'], $options->getKey());
         $this->assertEquals($config['debug'], $options->getDebug());
-    }  
+    }
 }
